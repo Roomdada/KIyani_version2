@@ -190,7 +190,7 @@
 
                                                <li class="mini_cart_item">
                                                    <div class="img-thumb">
-                                                       <img alt="" class="attachment-shop_thumbnail" src="{{ asset("images/Shop/".$data->model->image) }}">
+                                                       <img alt="" class="attachment-shop_thumbnail" src="{{ asset("images/Shop/".$data->model->img) }}">
                                                    </div>
                                                    <div class="product-detail">
                                                        <form method="POST" action="{{route('destroyCart',$data->rowId)}}">

@@ -27,18 +27,36 @@ Route::get('/contact','contactController@index')->name('path_contact');
 Route::post('/contact/message','contactController@store')->name('post_path_contact');
 
 // Portefolio route
-Route::prefix('portefolio')->group(function () {
-    Route::get('/', function () {
-        return view('pages/portefolio/portefolio');
-    })->name('path_portefolio');
+Route::prefix('portefolio')->group(function ()
+ {
+    Route::get('/','portefolioController@view')->name('path_portefolio');
+    Route::get('/{slug}','portefolioController@index')->name('portefolio_details');
 
-    Route::get('/{slug}','serviceController@index')->name('path_details');
 });
 
+
+
+
+//service details
+Route::prefix('service')->group(function()
+{
+    Route::get('/{slug}','serviceController@index')->name('path_details');
+    
+});
+//----------------------------------------------------------------------------
 Route::get('/myCart','cartController@show')->name('path_cart');
 Route::delete('/{rowId}','cartController@destroy')->name('destroyCart');
 Route::get('/update/cart','cartController@update')->name('updateCart');
 Route::patch('cart/{{rowId}}','cartController@cartUpdate')->name('cartupdate');
+
+//----------------------------------------------------------------------------
+
+
+
+//checkout
+Route::post('/checkout','checkoutController@store')->name('check');
+
+//----------------------------------------------------------------------------
 
 
 // Shop route
@@ -58,5 +76,12 @@ Route::prefix('shop')->group(function () {
     Route::post('/cart/add','cartController@store')->name('path_cart_add');
     
 
+});
+
+
+
+Route::prefix('checkout')->group(function(){
+
+    Route::get('/paiement','checkoutController@index')->name('checkout');
 });
 

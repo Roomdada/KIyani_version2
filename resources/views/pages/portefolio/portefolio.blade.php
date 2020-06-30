@@ -34,38 +34,28 @@
                    <a href="#" data-filter=".Office" class="text-cap">
                       <h4>Office</h4>
                    </a>
+                    <a href="#" data-filter=".Hospital" class="text-cap">
+                      <h4>Hospital</h4>
+                   </a>
                 </div>
                 <!-- End Project Fillter -->
+
+                  {{-- expr --}}
                 <div class="clearfix projectContainer portfolio-grid-v2-2-col-container">
-                   <div class="element-item  Residential">
-                      <a class="portfolio-img-demo" href="portfolioDetail_1.html"><img src="{{ asset('images/Project/1.jpg') }}" class="img-responsive" alt="Image"></a>
+                @foreach ($all_porte as $element)
+                   <div class="element-item  {{$element->type}}">
+                      <a class="portfolio-img-demo" href="portfolioDetail_1.html"><img src="{{ asset("images/Project/$element->image1") }}" class="img-responsive" alt="Image"></a>
                       <div class="project-info">
-                         <a href="portfolioDetail.html">
-                            <h4 class="title-project text-cap text-cap">Dream House</h4>
+                         <a href="{{route('portefolio_details',$element->slug)}}">
+                            <h4 class="title-project text-cap text-cap">{{$element->name}}</h4>
                          </a>
-                         <a href="portfolioDetail.html" class="cateProject">Residential</a>
+                         <a href="{{route('portefolio_details',$element->slug)}}" class="cateProject">{{$element->type}}</a>
                       </div>
                    </div>
+                @endforeach
 
-                   <div class="element-item Ecommercial">
-                      <a class="portfolio-img-demo" href="portfolioDetail_1.html"><img src="{{ asset('images/Project/3.jpg') }}" class="img-responsive" alt="Image"></a>
-                      <div class="project-info">
-                         <a href="portfolioDetail.html">
-                            <h4 class="title-project text-cap">Bathroom furniture</h4>
-                         </a>
-                         <a href="portfolioDetail.html" class="cateProject">Residential</a>
-                      </div>
-                   </div>
 
-                   <div class="element-item Office">
-                      <a class="portfolio-img-demo" href="portfolioDetail_1.html"><img src="{{ asset('images/Project/5.jpg') }}" class="img-responsive" alt="Image"></a>
-                      <div class="project-info">
-                         <a href="portfolioDetail.html">
-                            <h4 class="title-project text-cap">open Space House</h4>
-                         </a>
-                         <a href="portfolioDetail.html" class="cateProject">Residential</a>
-                      </div>
-                   </div>
+                   
                 </div>
                 <!-- End project Container -->
              </div>

@@ -17,14 +17,13 @@
           </div> <!-- End Row -->
        </div><!-- End container -->
     </section><!--  End Section -->
-	
 		 <Section class="no-padding-tb">
 	  	<div class="container">
 	        <div class="row">
 	        	<div class="detail-product-warp">
 	            	<div class="col-md-7">
                 		<div class="product-detail-image">
-                            <img alt="product-name" src="{{ asset("images/Shop/$details->image") }}">
+                            <img alt="product-name" src="{{ asset("images/Shop/$details->img") }}">
                 		</div>
                 	</div>
                		<div class="col-md-5">
