@@ -321,7 +321,7 @@
       <script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.video.min.js') }}"></script>	
       <!-- Intializing Slider-->
       <script type="text/javascript" src="{{ asset('js/plugins/slider.js') }}"></script>
-      <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+    
       <!-- Mobile Menu
          ================================================== --> 
       <script src="{{ asset('js/plugins/jquery.mobile-menu.js') }}"></script>  

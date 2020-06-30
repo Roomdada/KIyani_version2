@@ -4,6 +4,8 @@
 var selects = document.querySelectorAll('#qty');
 
 
+
+
 Array.from(selects).forEach((element)=>{
 
     element.addEventListener('change',function(){

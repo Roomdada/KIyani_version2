@@ -39,6 +39,8 @@ Route::get('/myCart','cartController@show')->name('path_cart');
 Route::delete('/{rowId}','cartController@destroy')->name('destroyCart');
 Route::get('/update/cart','cartController@update')->name('updateCart');
 Route::patch('cart/{{rowId}}','cartController@cartUpdate')->name('cartupdate');
+Route::get('/details/{id}','detailController@index'); 
+Route::post('/details/id','detailController@shop');
 
 
 // Shop route
@@ -55,7 +57,12 @@ Route::prefix('shop')->group(function () {
     Route::get('/cart', function () {
         return view('pages/shops/shop_cart');
     })->name('path_shop_cart');
+
+    
     Route::post('/cart/add','cartController@store')->name('path_cart_add');
+
+
+    
     
 
 });

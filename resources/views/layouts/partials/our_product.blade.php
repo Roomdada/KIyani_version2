@@ -30,7 +30,9 @@
                                         'product' => $product->slug
                                     ]
                                   ) }}" class="products-warp">
-                                <img src="{{ asset("images/Shop/$product->image") }}" class="img-responsive" alt="Image">
+
+                                 
+                                <img src="{{ asset('images/Shop/'.$product->img) }}" class="img-responsive" alt="Image">
                                 <span class="new-product">NEW</span>
                                 </a>
                                 <div class="product-info">
