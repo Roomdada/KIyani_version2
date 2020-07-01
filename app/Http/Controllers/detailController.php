@@ -14,6 +14,8 @@ class detailController extends Controller
 
     public function index($id){
 
+       
+
         $info=\App\models\Product::findOrFail($id);
 
           return View('pages/shops/shop_detail')->withInfo($info);
@@ -38,7 +40,7 @@ class detailController extends Controller
        
         else{
         $all = Product::findOrfail($id);
-        Cart::add($id,$all->name,$request->quantity,$request->total)
+        Cart::add($id,$all->name,$request->quantity,$all->price)
            ->associate('App\Models\Product');
            flashy('Votre produit a été ajouté au panier!!');
            return redirect()->route('path_home');

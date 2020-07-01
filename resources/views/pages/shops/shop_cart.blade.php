@@ -46,6 +46,7 @@
                             <tr class="cart_item">
                                 <td class="product-thumbnail">
                                     <a href="#">
+                                        
                                         <img alt="product-name" src="{{asset("images/Shop/".$element->model->img)}}">
                                     </a>                 
                                 </td>
@@ -58,11 +59,13 @@
                                 </td>
 
                                 
+
+                                
                                 <td data-title="Quantity" class="product-quantity">
-                                <span class="amount">{{$element->model->quantity}}</span>
+                                <span class="amount">{{floor($element->subtotal/$element->model->price)}}</span>
                                 </td>
                                 <td data-title="Total" class="product-subtotal">
-                                    <span class="amount">{{$element->price}} XOF</span>                   
+                                    <span class="amount">{{$element->subtotal}} XOF</span>                   
                                 </td>
                                 <td class="product-remove">
                                     <form method="POST" action="{{route('destroyCart',$element->rowId)}}">
@@ -182,5 +185,4 @@
 	</section>
 	<!-- End Section Promotion Product -->
 @endsection
-
 
