@@ -46,11 +46,7 @@
                             <tr class="cart_item">
                                 <td class="product-thumbnail">
                                     <a href="#">
-<<<<<<< HEAD
-                                        <img alt="product-name" src="{{asset('images/Shop/'.$element->model->image)}}">
-=======
                                         <img alt="product-name" src="{{asset("images/Shop/".$element->model->img)}}">
->>>>>>> cfadbdfa1eaf4df2b8764dbefe8f2f49146a2690
                                     </a>                 
                                 </td>
                                 <td data-title="Product" class="product-name">
@@ -63,17 +59,7 @@
 
                                 
                                 <td data-title="Quantity" class="product-quantity">
-                                  <select name="qty"  data-id="{{$element->rowId}}" id="qty" class="custom-select">
-                                      
-
-                                        @for($i=1;$i<=10;$i++)
-                                         
-                                         <option   value="{{$i}}">{{$i}}</option>
-                                         @endfor
-
-                                         
-                                     
-                                  </select>
+                                <span class="amount">{{$element->model->quantity}}</span>
                                 </td>
                                 <td data-title="Total" class="product-subtotal">
                                     <span class="amount">{{$element->price}} XOF</span>                   
@@ -198,54 +184,3 @@
 @endsection
 
 
-<<<<<<< HEAD
-<script type="text/javascript" >
-
-var qty = document.getElementsByName('#qty');
-
-var table=Array.from(qty);
-
-console.log(table[0]);
-
-Array.from(qty).forEach((element)=>{
-
-element.addEventListener('change',function(){ 
-
-    
-    var rowId = this.getAttribute('data-id');
-    var token = document.querySelectorAll('meta[name="csrf-token"]').getAttribute('content');
-
-
-    fetch
-    (
-
-        `cart/${rowId}`,
-        {
-            headers:
-            {
-                "Content-type":"application/json",
-                "Accept":"application/json, text-plain,*/*",
-                "X-Request-With":"XMLHttpRequest",
-                "X-CSRF-TOKEN":token
-            },
-            method:'patch',
-            body:JSON.stringify({
-                qty:this.value
-            })
-        }
-    ).then((data)=>{
-            console.log(data);
-            location:reload();
-        }).catch((error)=>{
-            console.log(error);
-    })
-})
-
-});
-
-
-
-
-</script>
-=======
->>>>>>> cfadbdfa1eaf4df2b8764dbefe8f2f49146a2690

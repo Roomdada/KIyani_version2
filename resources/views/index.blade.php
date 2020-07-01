@@ -161,7 +161,7 @@
                                            @csrf
                                               
                                        <input name="id_product" type="hidden" value="{{$product->id}}">
-                                        <button type="submit" class="ot-btn  btn-main-color">Add to Cart</button>
+                                        <a href="/details/{{$product->id}}" class="ot-btn  btn-main-color">Add to Cart</a>
                                               
                                      </form>
                                 </div>

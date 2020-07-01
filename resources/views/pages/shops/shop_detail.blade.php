@@ -12,7 +12,7 @@
   
     <div class="col-md-6">
 
-       <div class="jumbotron">
+       <div class="container">
        
 
           <img src="{{asset('images/shop/'.$info->img)}}">
@@ -23,9 +23,11 @@
     </div>
 
     <div class="col-md-6">
+
+      <form method="post" action="/details/{{$info->id}}">
     
     
-        <div class="jumbotron">
+        <div class="container-fluid">
         
         
            
@@ -35,39 +37,40 @@
               <hr>
               <p>{{$info->description}}</p>
               <hr>
-              <p>
-              
-                 Prix: 
-                 <input type="number" class="form-control invalid-feedback"  id="price" name="quantity"  min="1" max="10" value="{{$info->price}}" >
+               <p>
+                  Prix: 
+                  <input type="number" class="form-control invalid-feedback"  id="price" name="price"   value="{{$info->price}}" >
+               </p>
+               <p>
+                  Quantité
+                     <input type="number" class="form-control"  id="qtys" name="quantity"  min="1" max="10" value="1" required>
+                        
+               </p>
 
-              </p>
-              <p>
-                 Quantité
-                  <input type="number" class="form-control"  id="qtys" name="quantity"  min="1" max="10" value="1" required>
-                     
-                 
-
-              </p>
-
-              <p id="total"> 
-                 Prix total: {{$info->price}}  XOF
-
-              </p>
+               <p id="total"> 
+                  Prix total: {{$info->price}}  XOF
+               </p>
+              <input type="hidden" class="form-control"  id="total2" name="total"  min="1" max="10" value="{{$info->price}}" required>
 
 
 
               <div class="btn-group">
               
-                 <form method="post" action="/details/{{$info->id}}">
+                 
                  
                    @csrf()
-                   @method('POST')
-                   <button class="btn btn-success">
+                   
+                   <button  type="submit" class="btn btn-success">
                        Enregistrer 
                    </button>
-                 </form>
+                
               
               </div>
+
+            </form>
+
+              <br>
+              <br>
               
 
                 <script type="text/javascript">
@@ -75,6 +78,7 @@
                  var qty = document.querySelector('#qtys');
                  var price=document.querySelector('#price');
                  var total=document.querySelector('#total');
+                 var total2=document.querySelector('#total2');
                  var calcule=0;
 
                  
@@ -88,6 +92,7 @@
 
                      total.innerHTML=" Prix total : "+calcule+" XOF ";
 
+                     total2.innerHTML="<input type=\"hidden\" class=\"form-control\"  id=\"total2\" name=\"total\"  min=\"1\" max=\"10\" value="+calcule+" required>";
 
                      
                  });
