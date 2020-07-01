@@ -46,7 +46,10 @@
                             <tr class="cart_item">
                                 <td class="product-thumbnail">
                                     <a href="#">
+
                                         <img alt="product-name" src="{{asset('images/Shop/'.$element->model->image)}}">
+
+
                                         <img alt="product-name" src="{{asset("images/Shop/".$element->model->img)}}">
                                     </a>                 
                                 </td>
@@ -60,17 +63,7 @@
 
                                 
                                 <td data-title="Quantity" class="product-quantity">
-                                  <select name="qty"  data-id="{{$element->rowId}}" id="qty" class="custom-select">
-                                      
-
-                                        @for($i=1;$i<=10;$i++)
-                                         
-                                         <option   value="{{$i}}">{{$i}}</option>
-                                         @endfor
-
-                                         
-                                     
-                                  </select>
+                                <span class="amount">{{$element->model->quantity}}</span>
                                 </td>
                                 <td data-title="Total" class="product-subtotal">
                                     <span class="amount">{{$element->price}} XOF</span>                   
@@ -195,7 +188,6 @@
 @endsection
 
 
-<<<<<<< HEAD
 <script type="text/javascript" >
 
 var qty = document.getElementsByName('#qty');

@@ -22,7 +22,7 @@ class homeController extends Controller
      */
     public function index()
     {
-        
+       //dd(Cart::content());
         $partners = Partners::all();
         $testimony = Testimony::all();
         $portefolio = Portefolio::all();

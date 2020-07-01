@@ -49,7 +49,7 @@ Route::delete('/{rowId}','cartController@destroy')->name('destroyCart');
 Route::get('/update/cart','cartController@update')->name('updateCart');
 Route::patch('cart/{{rowId}}','cartController@cartUpdate')->name('cartupdate');
 Route::get('/details/{id}','detailController@index'); 
-Route::post('/details/id','detailController@shop');
+Route::post('/details/{id}','detailController@shop');
 
 //----------------------------------------------------------------------------
 
