@@ -31,6 +31,8 @@
       <!-- Main Style -->
       <link rel="stylesheet" href="{{ asset('css/style.css') }}">
       <meta name="csrf-token" content="{{ csrf_token() }}">
+      <script src="https://js.stripe.com/v3/"></script>
+
       <!-- Favicons
          ================================================== -->
    </head>
@@ -344,6 +346,10 @@
             });
         })(jQuery);
       </script>
+      <script type="text/javascript">
+         var stripe = Stripe('pk_test_51GzgaKHlVKZD1l4NfKmUKnCTatHsJjPGNBgW08THp2PkGJE7lQjL1QZEk94lbEeJQVlcCwcdzYAfpuNw0Oo9wA7M00XG30UYBe');
+         var elements = stripe.elements();
+      </script>
 
       <!-- Global Js
        ================================================== --> 
@@ -354,4 +360,7 @@
    </body>
 
 </html>
+
+
+
 

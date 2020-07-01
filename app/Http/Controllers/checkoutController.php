@@ -18,15 +18,24 @@ class checkoutController extends Controller
     {
 
     
+
+
+         $content = Cart::content();
+         dd(Arr::get($content,'name'));
         Stripe::setApiKey('sk_test_51GzgaKHlVKZD1l4NUFt95yPYSszbih6RSRRV5OpG8bDLKsCs0rsWdVvTbCvKllQUgAC7Y4v8Q6yqxkPUrFVqs1pl00ZyqjCjXW');
 
         $intent = PaymentIntent::create([
-              'amount' => round(Cart::subtotal(),0),
+              'amount' => round(Cart::subtotal())*1000,
               'currency' => 'eur',
             ]);
 
-        dd($intent);
-        return view('pages.checkout.checkout');
+
+       // dd($intent);
+        
+        $clientsecret = Arr::get($intent,'client_secret');
+
+       // dd($clientsecret);
+        return view('pages.checkout.checkout',['clientsecret'=>$clientsecret]);
     }
 
     /**

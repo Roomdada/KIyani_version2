@@ -22,9 +22,15 @@
     <section>
     	<div class="col-md-12">
     		<h1>Effectuer le paiement maintenant</h1>
-    		
+    		<form id="payment-form">
+            <div id="card-element">
+            </div>
+            <div id="card-errors" role="alert"></div>
+            <button id="submit">Pay</button>
+          </form>
     	</div>
     </section>
+    <br><br><br>
 
 
 
