@@ -1,41 +1,36 @@
 <?php
 
 namespace App\Http\Controllers;
-use illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
+use App\Models\Portefolio;
+use App\Models\Testimony;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Stripe\Stripe;
-use Stripe\PaymentIntent;
-use Gloudemans\Shoppingcart\Facades\Cart;
-class checkoutController extends Controller
+
+class portefolioController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+  /*$randomUser = DB::table('users')
+                ->inRandomOrder()
+                ->first();*/
+    public function index($slug)
     {
-
+         $testimony = DB::('portfolios')->inRandomOrder()->take(8)->get();
     
+       $details = Portefolio::where('slug',$slug)->first();
+       return view('pages.portefolio/portefolio_detail',compact('details','testimony'));
+    }
 
+    public function view()
+    {
+        $testimony = Testimony::all();
+        $all_porte = Portefolio::inRandomOrder()->take(8)->get();
+        return view('pages/portefolio/portefolio',compact('testimony','all_porte'));
 
-         $content = Cart::content();
-         dd(Arr::get($content,'name'));
-        Stripe::setApiKey('sk_test_51GzgaKHlVKZD1l4NUFt95yPYSszbih6RSRRV5OpG8bDLKsCs0rsWdVvTbCvKllQUgAC7Y4v8Q6yqxkPUrFVqs1pl00ZyqjCjXW');
-
-        $intent = PaymentIntent::create([
-              'amount' => round(Cart::subtotal())*1000,
-              'currency' => 'eur',
-            ]);
-
-
-       // dd($intent);
-        
-        $clientsecret = Arr::get($intent,'client_secret');
-
-       // dd($clientsecret);
-        return view('pages.checkout.checkout',['clientsecret'=>$clientsecret]);
     }
 
     /**
@@ -57,15 +52,6 @@ class checkoutController extends Controller
     public function store(Request $request)
     {
         //
-
-        foreach (Cart::content() as $key => $value) {
-           $name = Arr::get($value,'name');
-        }
-        dd($name);
-        $number = Arr::get(Cart::content(),'name');
-        dd(Cart::subtotal());
-     
-     
     }
 
     /**

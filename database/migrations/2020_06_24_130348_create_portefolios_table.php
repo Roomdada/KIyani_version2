@@ -18,6 +18,7 @@ class CreatePortefoliosTable extends Migration
             $table->string('name')->unique();
             $table->string('slug')->unique();
             $table->string('client_name');
+            $table->string('type');
             $table->string('location');
             $table->decimal('surface');
             $table->decimal('price');

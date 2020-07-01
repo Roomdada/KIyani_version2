@@ -263,83 +263,20 @@
                             </div> <!-- End Project Fillter -->
 
                             <div class="clearfix projectContainer">
-             
-                              <div class="element-item  Residential">
+
+                              @foreach ($portefolio as $porte)
+                                {{-- expr --}}
+                              <div class="element-item  {{$porte->type}}">
                                   
-                                    <img src="images/Project/1.jpg" class="img-responsive" alt="Image">
+                                    <img src="{{asset("images/Project/$porte->image1")}}" class="img-responsive" alt="Image">
                                   <div class="project-info">
-                                      <a href="portfolioDetail.html"><h4 class="title-project text-cap text-cap">Dream House</h4></a>
-                                      <a href="portfolioDetail.html" class="cateProject">Residential</a>
+                                      <a href="portfolioDetail.html"><h4 class="title-project text-cap text-cap">{{$porte->name}}</h4></a>
+                                      <a href="{{route("portefolio_details",$porte->slug)}}" class="cateProject">{{$porte->type}}</a>
                                   </div>
                               </div>
+                              @endforeach
+
                            
-                              <div class="element-item Residential ">
-                                  
-                                    <img src="images/Project/2.jpg" class="img-responsive" alt="Image">
-                  
-                                <div class="project-info">
-                                     <a href="portfolioDetail.html"><h4 class="title-project text-cap">Wood Wall City</h4></a>
-                                      <a href="portfolioDetail.html" class="cateProject">Ecommercial</a>
-                                </div>
-                              </div>    
-                           
-                              <div class="element-item Ecommercial">
-                                  <a class="img-contain-isotope" href="portfolioDetail.html">
-                                     <img src="images/Project/3.jpg" class="img-responsive" alt="Image">
-                                     </a>
-                                     <div class="project-info">
-                                     <a href="portfolioDetail.html"><h4 class="title-project text-cap">Bathroom furniture</h4></a>
-                                    <a href="portfolioDetail.html" class="cateProject">Residential</a>
-                                  </div>
-                            </div>                          
-                              <div class="element-item Ecommercial ">
-                                  <a class="img-contain-isotope" href="portfolioDetail.html">
-                                    <img src="images/Project/4.jpg" class="img-responsive" alt="Image">
-                                    </a>
-                                    <div class="project-info">
-                                    <a href="portfolioDetail.html"><h4 class="title-project text-cap">Living room decor</h4></a>
-                                        <a href="portfolioDetail.html" class="cateProject">Residential</a>
-                                  </div>
-                              </div>
-                           
-                              <div class="element-item Office">
-                                  <a class="img-contain-isotope" href="portfolioDetail.html">
-                                   <img src="images/Project/5.jpg" class="img-responsive" alt="Image">
-                                   </a>
-                                   <div class="project-info">
-                                   <a href="portfolioDetail.html"><h4 class="title-project text-cap">open Space House</h4></a>
-                                        <a href="portfolioDetail.html" class="cateProject">Residential</a>
-                                  </div>
-                              </div>
-                           
-                              <div class="element-item Office">
-                                  <a class="img-contain-isotope" href="portfolioDetail.html">
-                                    <img src="images/Project/6.jpg" class="img-responsive" alt="Image">
-                                    </a>
-                                    <div class="project-info">
-                                    <a href="portfolioDetail.html"><h4 class="title-project text-cap">Sky Hotel</h4></a>
-                                        <a href="portfolioDetail.html" class="cateProject">Ecommercial</a>
-                                  </div>
-                              </div>
-                           
-                              <div class="element-item Hospital ">
-                                  <a class="img-contain-isotope" href="portfolioDetail.html">
-                                     <img src="images/Project/7.jpg" class="img-responsive" alt="Image">
-                                     </a>
-                                     <div class="project-info">
-                                     <a href="portfolioDetail.html"><h4 class="title-project text-cap">Ogrange Corporate</h4></a>
-                                        <a href="portfolioDetail.html" class="cateProject">Office</a>
-                                  </div>
-                              </div>    
-                               
-                              <div class="element-item Hospital">
-                                  
-                                    <img src="images/Project/8.jpg" class="img-responsive" alt="Image">
-                                  <div class="project-info">
-                                   <a href="portfolioDetail.html"><h4 class="title-project text-cap">Ocean view Building</h4></a>
-                                        <a href="portfolioDetail.html" class="cateProject">Residential</a>
-                                  </div>
-                              </div>
                             </div>  <!-- End project Container -->
                       </div> <!-- End  -->
                       <div class="overlay-arc">
@@ -386,7 +323,6 @@
         </div>
         </div>
       </section>
-  @include('layouts/partials/testimony')
   @include('flashy::message')
 
 @endsection

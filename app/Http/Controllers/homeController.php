@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Testimony;
 use App\Models\Service;
 use App\Models\Product;
+use App\Models\Portefolio;
 use App\Models\Category;
 use App\Models\Partners;
 use App\Models\Department;
@@ -24,6 +25,7 @@ class homeController extends Controller
         
         $partners = Partners::all();
         $testimony = Testimony::all();
+        $portefolio = Portefolio::all();
         $service = Service::all();
         $products = DB::table('products')
                 ->join('categories','products.categories_id', '=', 'categories.id')
@@ -33,7 +35,7 @@ class homeController extends Controller
                     'categories.slug as categories_slug',
                     'departments.slug as departments_slug'
                 )->get()->shuffle();
-        return view('index',compact('testimony','service','products','partners'));
+        return view('index',compact('testimony','service','products','partners','portefolio'));
 
     }
 

@@ -146,6 +146,7 @@
 			<!-- Content -->
 				@yield('content')
 			<!-- End Content -->
+           @include('layouts/partials/testimony')
             
 			<footer class="footer-v1">
 				<div class="footer-left">
