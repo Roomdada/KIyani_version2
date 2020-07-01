@@ -15,7 +15,7 @@
        <div class="jumbotron">
        
 
-          <img src="{{asset('images/shop/'.$info->img)}}">
+          <img src="{{asset('images/shop/'.$info->image)}}">
            
 
        </div>

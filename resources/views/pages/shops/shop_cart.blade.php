@@ -46,11 +46,8 @@
                             <tr class="cart_item">
                                 <td class="product-thumbnail">
                                     <a href="#">
-<<<<<<< HEAD
                                         <img alt="product-name" src="{{asset('images/Shop/'.$element->model->image)}}">
-=======
                                         <img alt="product-name" src="{{asset("images/Shop/".$element->model->img)}}">
->>>>>>> cfadbdfa1eaf4df2b8764dbefe8f2f49146a2690
                                     </a>                 
                                 </td>
                                 <td data-title="Product" class="product-name">
@@ -247,5 +244,3 @@ element.addEventListener('change',function(){
 
 
 </script>
-=======
->>>>>>> cfadbdfa1eaf4df2b8764dbefe8f2f49146a2690
