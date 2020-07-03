@@ -67,7 +67,9 @@ class cartController extends Controller
      */
     public function show()
     {
-        
+        if (Cart::count()<=0) {
+            return redirect()->route('path_home');
+        }
         return view('pages/shops/shop_cart');
     }
 

@@ -87,8 +87,10 @@ Route::prefix('shop')->group(function () {
 
 
 
-Route::prefix('checkout')->group(function(){
 
-    Route::get('/paiement','checkoutController@index')->name('checkout');
+
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
 });
-

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Gloudemans\Shoppingcart\CartItem;
+use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 use App\Models\Testimony;
 use App\Models\Service;
@@ -22,7 +24,7 @@ class homeController extends Controller
      */
     public function index()
     {
-       //dd(Cart::content());
+       
         $partners = Partners::all();
         $testimony = Testimony::all();
         $portefolio = Portefolio::all();

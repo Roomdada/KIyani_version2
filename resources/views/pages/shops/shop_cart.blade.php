@@ -21,12 +21,18 @@
 	<Section class="no-padding-top">
 	  	<div class="container">
             <div class="shopping-cart-warp">
+                @if (session()->has('message'))
+                <div class="alert alert-success">
+                    <p class="text-center">{{session()->get('message')}}</p>
+                </div>
+                @endif
+              
                     <div class="table-responsive">
                       <table  class="shop_table shop_table_responsive cart table">
                         <thead>
                             <tr>
-                                <th class="product-thumbnail">&nbsp;</th>
-                                <th class="product-name">Product</th>
+                                <th class="product-thumbnail">Images</th>
+                                <th class="product-name">Products</th>
                                 <th class="product-price">Price</th>
                                 <th class="product-quantity">Quantity</th>
                                 <th class="product-subtotal">Total</th>
@@ -34,22 +40,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if (empty(Cart::content()))
-                            <tr class="cart_item">
-                                <td class="product-thumbnail">
-                                  <p>{{'Votre panier est vide'}}</p>
-                               </td>
-                            </tr>
-                            @endif
+                          @if (Cart::count()==0)
+                              <div>
+                                  <p>Votre panier est vide</p>
+                              </div>
+                          @endif
                             @foreach (Cart::content() as $element)
                                 {{-- expr --}}
                             <tr class="cart_item">
                                 <td class="product-thumbnail">
                                     <a href="#">
-
-                                        <img alt="product-name" src="{{asset('images/Shop/'.$element->model->image)}}">
-
-
                                         <img alt="product-name" src="{{asset("images/Shop/".$element->model->img)}}">
                                     </a>                 
                                 </td>
@@ -62,11 +62,13 @@
                                 </td>
 
                                 
+
+                                
                                 <td data-title="Quantity" class="product-quantity">
-                                <span class="amount">{{$element->model->quantity}}</span>
+                                <span class="amount">{{round(floor($element->subtotal/$element->model->price))}}</span>
                                 </td>
                                 <td data-title="Total" class="product-subtotal">
-                                    <span class="amount">{{$element->price}} XOF</span>                   
+                                    <span class="amount">{{round($element->subtotal)}} XOF</span>                   
                                 </td>
                                 <td class="product-remove">
                                     <form method="POST" action="{{route('destroyCart',$element->rowId)}}">
@@ -101,7 +103,7 @@
                             <table class="shop_table shop-proceed shop_table_responsive">
                             	<tbody>
                                     <tr class="cart-subtotal">
-                                        <th>Subtotal:</th>
+                                        <th><h6>Total:{{round(Cart::subtotal())*1000}} FCFA</h6></th>
                                         <td data-title="Subtotal"><span class="amount"><strong></strong></span></td>
                                     </tr>
                            		 	<tr class="shipping">
@@ -114,21 +116,26 @@
 
                                                     <section class="shipping-calculator-form no-padding">
                                                             <p id="calc_shipping_state_field" class="form-row form-row-wide" >
-                                                                <input type="text" placeholder="Name"  id="calc_shipping_state" name="name" class="input-text">  
+                                                                <input value="{{old('name')}}" type="text" placeholder="Name"  id="calc_shipping_state" name="name" class="input-text">
+                                                                 {!! $errors->first('name','<span class="help-block">:message</span>') !!}
+
                                                             </p>
 
                                                             <p id="calc_shipping_postcode_field" class="form-row form-row-wide">
-                                                                <input type="email" id="calc_shipping_postcode" name="email" placeholder="Email" value="" class="input-text">
+                                                                <input value="{{old('email')}}" type="email" id="calc_shipping_postcode" name="email" placeholder="Email" value="" class="input-text">
+                                                            {!! $errors->first('email','<span class="help-block">:message</span>') !!}
+
                                                             </p>
                                                              <p id="calc_shipping_postcode_field" class="form-row form-row-wide">
-                                                                <input type="number" id="calc_shipping_postcode" name="contact" placeholder="Contact" value="" class="input-text">
+                                                                <input value="{{old('contact')}}"  type="number" id="calc_shipping_postcode" name="contact" placeholder="Contact" value="" class="input-text">
+                                                           {!! $errors->first('contact','<span class="help-block">:message</span>') !!}
+
                                                             </p>
                                                                <p id="calc_shipping_postcode_field" class="form-row form-row-wide">
-                                                                <input type="text" id="calc_shipping_postcode" name="commune" placeholder="Commune" value="" class="input-text">
+                                                                <input value="{{old('commune')}}" type="text" id="calc_shipping_postcode" name="commune" placeholder="Commune" value="" class="input-text">
+                                                           {!!$errors->first('commune','<span class="help-block">:message</span>') !!}
+
                                                             </p>
-                                                            <input type="hidden" name="price_total" value="{{Cart::subtotal()}}">
-                                                         
-                    
                                                             <p class=" margin-top-15">
                                                                 <button class="ot-btn btn-coupon" value="1" name="calc_shipping" type="submit">Commander</button>
                                                             </p> 
@@ -138,14 +145,14 @@
                                             </tr>
                                         <tr class="order-total">
                                             <th>Total:</th>
-                                            <td data-title="Total"><strong><span class="amount">{{Cart::subtotal()}} XOF</span></strong> </td>
+                                            <td data-title="Total"><strong><span class="amount">{{round(Cart::subtotal())*1000}} XOF</span></strong> </td>
                                         </tr>
                                     </tbody>
                             </table>
                           </div>
-
+                           
                         <div class="wc-proceed-to-checkout">        
-                            <a class="ot-btn btn-main-color btn-block checkout-button" href="{{route('checkout')}}">
+                            <a class="ot-btn btn-main-color btn-block checkout-button" href="">
                                 Proceed to Checkout <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
@@ -187,6 +194,7 @@
 	<!-- End Section Promotion Product -->
 @endsection
 
+<<<<<<< HEAD
 
 <script type="text/javascript" >
 
@@ -236,3 +244,4 @@ element.addEventListener('change',function(){
 
 
 </script>
+

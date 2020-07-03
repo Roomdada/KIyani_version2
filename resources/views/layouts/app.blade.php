@@ -36,7 +36,7 @@
 	<div class="mobile-menu-first ">
     	<div id="mobile-menu" class="mobile-menu">
     		<div class="header-mobile-menu">
-              <a href="#">TOTAL: {{Cart::subtotal()}} XOF</a>
+              <a href="#">TOTAL: {{round(Cart::subtotal())*1000}} XOF</a>
               	<div class="mm-toggle">
             		<span aria-hidden="true" class="icon_close"></span>
             	</div> 
@@ -93,12 +93,11 @@
 				<div id="info" class="topbar topbar-position topbar-dark hide-topbar" data-0="height:30px" data-251="height:0;">
 		    		
 					<div class="col-md-12">
-						<p class="text-cap hidden-xs">TOTAL: {{Cart::subtotal()}} XOF</p>
+						<p class="text-cap hidden-xs">TOTAL: {{round(Cart::subtotal())*1000}} XOF</p>
 	    				<p class="text-cap">E-mail: contact@arc.com</p>
 	    				<div class="language">
 	    					<a href="#" class="active">EN</a>
 	    					<a href="#">FR</a>
-	    					<a href="#">PT</a>
 	    				</div>
 					</div>
 		    			
@@ -122,7 +121,7 @@
 				</nav><!-- End Nav -->
 				<div class="right-header">
 					<ul class="navi-level-1 sub-navi seperator-horizonal-line hover-style-4">	
-						<li class="header-tel"><a class="tel-header" href="#">TOTAL:{{Cart::subtotal()}} XOF</a></li>
+						<li class="header-tel"><a class="tel-header" href="#">TOTAL:{{round(Cart::subtotal())*1000}} XOF</a></li>
 						
 
 	                    <!-- Testing Search Box -->
@@ -243,7 +242,7 @@
 
  	<!-- PreLoad
     ================================================== --> 
-    <script type="text/javascript" src="{{ asset('js/plugins/royal_preloader.min.js') }}"></script>
+   <!--<script type="text/javascript" src="{{ asset('js/plugins/royal_preloader.min.js') }}"></script>
 	<script type="text/javascript">
 		(function($) { "use strict";
             Royal_Preloader.config({
@@ -255,7 +254,7 @@
                 background:     ['#FFFFFF']
             });
 		})(jQuery);
-	</script>
+	</script>-->
 
  	<!-- Global Js
     ================================================== --> 

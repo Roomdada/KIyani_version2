@@ -12,10 +12,10 @@
   
     <div class="col-md-6">
 
-       <div class="container">
+       <div class="container-fluid">
        
 
-          <img src="{{asset('images/shop/'.$info->image)}}">
+          <img src="{{asset("images/Shop/$info->img")}}">
            
 
        </div>
@@ -60,7 +60,7 @@
                  
                    @csrf()
                    
-                   <button  type="submit" class="btn btn-success">
+                   <button  type="submit" class=" col-md-12 btn btn-success ">
                        Enregistrer 
                    </button>
                 

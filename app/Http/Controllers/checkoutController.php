@@ -5,6 +5,7 @@ use illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Stripe\Stripe;
+use App\Models\Checkout;
 use Stripe\PaymentIntent;
 use Gloudemans\Shoppingcart\Facades\Cart;
 class checkoutController extends Controller
@@ -56,15 +57,51 @@ class checkoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //4
+       // dd($request['name']);
+  /* $req = $this->validate($request,
+        [
+             'name'=>'required|min:3', 
+             'email'=>'required|email', 
+              'contact'=>'required|max:8|min:8',
+              'commune'=>'required',
+              'price'=>'require',
+              'products'=>'required',
+        ]);
+    
+       if ($req->fails()) {
+           return back()->withErrors();
+       }*/
+    
+       $products = [];
+       $i = 0;
+       foreach (Cart::content() as $product) {
+           $products['product_'.$i][]=$product->model->name;
+           $products['product_'.$i][]=$product->model->price;
+           $products['product_'.$i][]=$product->qty;
+           $i++;
+       }
 
-        foreach (Cart::content() as $key => $value) {
-           $name = Arr::get($value,'name');
-        }
-        dd($name);
-        $number = Arr::get(Cart::content(),'name');
-        dd(Cart::subtotal());
-     
+       $product=serialize($products);
+
+       $price = round(Cart::subtotal())*1000;
+
+
+       Checkout::create(
+        [
+        'name'   =>  $request['name'],
+        'email'   => $request['email'],
+        'contact' => $request['contact'],
+        'commune' => $request['commune'],
+        'price'   => $price,
+        'products' => $product,
+         ]
+         );
+
+       Cart::destroy();
+        session()->flash('message','Votre commande a été prise en compte nous vous contacterons le plus vite possible');
+       return view('pages.shops.shop_cart');
+       
      
     }
 

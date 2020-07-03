@@ -18,7 +18,7 @@ class aboutController extends Controller
 
         $team = Team::all();
         $testimony = Testimony::all();
-        return view('pages/about',compact('team'));
+        return view('pages/about',compact('team','testimony'));
     }
 
     /**

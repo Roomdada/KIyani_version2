@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\contactRequest;
+use MercurySeries\Flashy\Flashy;
 use App\Models\Testimony;
 use App\Models\Message;
 class contactController extends Controller
@@ -35,10 +37,10 @@ class contactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(contactRequest $request)
     {
         $msg = Message::create($request->only('name','email','subject','service','message'));
-        flashy('Votre message a été envoyer avec succes!!');
+        session()->flash('message','Message envoyé');
         return redirect()->route('path_contact');
     }
 

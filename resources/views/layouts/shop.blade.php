@@ -40,7 +40,7 @@
       <div class="mobile-menu-first">
          <div id="mobile-menu" class="mobile-menu">
             <div class="header-mobile-menu">
-               <a href="#">Total: {{Cart::subtotal()}}</a>
+               <a href="#">Total: round({{Cart::subtotal()}})</a>
                <div class="mm-toggle">
                   <span aria-hidden="true" class="icon_close"></span>
                </div>
@@ -182,7 +182,7 @@
                                     <span aria-hidden="true" class="icon_bag_alt">
                                     </span>
                                     <span class="mini-cart-counter">{{Cart::count()}}</span>
-                                    <span class="price-mini-cart">{{Cart::subtotal()}} XOF</span>
+                                    <span class="price-mini-cart">{{round(Cart::subtotal())*1000}} XOF</span>
                                  </a>
                                     {{-- expr --}}
                          
@@ -208,7 +208,7 @@
                                                </li>
                                               @endforeach
                                            </ul>
-                                           <p class="total"><strong>Subtotal:{{Cart::subtotal()}}</strong> <span class="amount">FCFA</span></p>
+                                           <p class="total"><strong>Subtotal:{{round(Cart::subtotal())*1000}}</strong> <span class="amount">FCFA</span></p>
                                            <p class="buttons">
                                                <a class="ot-btn btn-border btn-border-white" href="#">View Cart</a>
                                                <a class="ot-btn btn-main-color " href="#">Checkout</a>

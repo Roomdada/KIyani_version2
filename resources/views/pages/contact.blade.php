@@ -20,7 +20,12 @@
 	<!-- Section Google Map -->
    	<section class="padding no-padding-bot">
    		<div class="container">
-   			
+   			    @if (session()->has('message'))
+                <div class="alert alert-success">
+                    <p class="text-center">{{session()->get('message')}}</p>
+                </div>
+                @endif
+              
    				<div class="contact-warp">
    					<h3 class="text-cap"> Find Us On Google</h3>
    				</div>
@@ -49,34 +54,38 @@
     						<h3 class="text-cap"> Send Us a Message</h3>
           					<form class="form-inline form-contact-arc" name="contact" method="post" action="{{route('post_path_contact')}}"">
                             {{csrf_field()}}
+            				    
             					<div class="row">
-        							  <div class="form-group col-md-4 ">
-        							  	<label for="yourName">Design Consultation</label>
-        							    <input name="service" type="radio" class="form-control" name="yourName">
+        							  <div class="form-group col-md-3 ">
+        							    <input value="{{old('name')}}" type="text" class="form-control" name="name" id="yourName" placeholder="Your Name">
+				                        {!! $errors->first('name','<span class="help-block">:message</span>') !!}
+
         							  </div>
-        							  <div class="form-group col-md-4 ">
-        							  	<label for="yourName">Design Mood</label>
-        							    <input type="radio" name="service" class="form-control" name="yourName">
+        							  <div class="form-group col-md-3 ">
+        							    <select type="text" class="form-control" name="service" id="yourName" placeholder="Your Name">
+        							    	<option id="1">KIyani design consultation</option>
+        							    	<option id="2">KIyani design consultation</option>
+        							    	<option id="3">KIyani design consultation</option>
+        							    </select>
+				                        {!! $errors->first('service','<span class="help-block">:message</span>') !!}
+
         							  </div>
-        							  <div class="form-group col-md-4 ">
-        							  	<label for="yourName">Design Package</label>
-        							    <input name="service" type="radio" class="form-control" name="yourName">
+        							  <div class="form-group col-md-3">
+        							    <input value="{{old('email')}}" type="email" class="form-control" name="email" id="yourEmail" placeholder="Your Email" >
+				                        {!! $errors->first('email','<span class="help-block">:message</span>') !!}
+
         							  </div>
-      						    </div>
-            					<div class="row">
-        							  <div class="form-group col-md-4 ">
-        							    <input type="text" class="form-control" name="name" id="yourName" placeholder="Your Name">
-        							  </div>
-        							  <div class="form-group col-md-4">
-        							    <input type="email" class="form-control" name="email" id="yourEmail" placeholder="Your Email" >
-        							  </div>
-        							  <div class="form-group col-md-4">
-        							    <input type="text" class="form-control" name="subject" id="phoneNumber" placeholder="Subject" >
+        							  <div class="form-group col-md-3">
+        							    <input value="{{old('subject')}}" type="text" class="form-control" name="subject" id="phoneNumber" placeholder="Subject" >
+				                        {!! $errors->first('subject','<span class="help-block">:message</span>') !!}
+
         							  </div>
       						    </div>
       						    <div class="input-content padding-top-20">
         						  	<div class="form-group form-textarea">
-        					  			<textarea id="textarea" class="form-control" name="message" rows="6" placeholder="Your Messages" ></textarea>
+        					  			<textarea id="textarea" class="form-control" name="message" rows="6" placeholder="Your Messages" >{{old('message')}}</textarea>
+				                        {!! $errors->first('message','<span class="help-block">:message</span>') !!}
+
         						  	</div>
         						  </div>
                       			<button  class="ot-btn btn-main-color btn-long text-cap btn-submit">Send Mail</button>
@@ -287,4 +296,5 @@
 		}).Load();
 	</script>
 @endpush
+<script src="//code.jquery.com/jquery.js"></script>
 @include('flashy::message')
