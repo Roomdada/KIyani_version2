@@ -20,17 +20,17 @@
 	<!-- REVOLUTION NAVIGATION STYLES -->
 	<link rel="stylesheet" type="text/css" href="{{asset('revolution/css/navigation.css') }}">
 	<!-- OWL CAROUSEL
-  	================================================== --> 
+  	================================================== -->
   	<link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
   	<!-- SCROLL BAR MOBILE MENU
-		================================================== --> 
+		================================================== -->
 		 <link rel="stylesheet" href="{{ asset('css/jquery.mCustomScrollbar.css') }}" />
-		
+
 	<!-- Main Style -->
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	<!-- Favicons
 	  ================================================== -->
-  	<link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+  	<link rel="shortcut icon" href="{{ asset('images/Header/logo.svg') }}">
 </head>
 <body>
 	<div class="mobile-menu-first ">
@@ -39,7 +39,7 @@
               <a href="#">TOTAL: {{round(Cart::subtotal())*1000}} XOF</a>
               	<div class="mm-toggle">
             		<span aria-hidden="true" class="icon_close"></span>
-            	</div> 
+            	</div>
           	</div> <!-- Mobile Menu -->
       		<div class="mCustomScrollbar light" data-mcs-theme="minimal-dark">
 	            <ul>
@@ -65,7 +65,7 @@
                     <li><p> 8th floor, 379 Hudson St, New York, NY 10018</p></li>
                     <li><p>1-800-123-6879 </p></li>
                     <li><p> contact@kiyani.com</p></li>
-                    
+
                   </ul>
               	</div>
       		</div> <!-- /#rmm   -->
@@ -76,7 +76,7 @@
 	  	<button type="button" class="close" data-dismiss="modal">×</button>
 	  	<div class="modal-dialog myModal-search">
         <!-- Modal content-->
-        <div class="modal-content">                                        
+        <div class="modal-content">
             <div class="modal-body">
                 <form role="search" method="get" class="search-form">
                     <input class="search-field" placeholder="Search here..." value="" title="" type="search">
@@ -91,7 +91,7 @@
     	<div id="skrollr-body">
 			<header id="mainmenu" class="header-v1 header-border header-fix " data-0="padding:10px;padding-left:40px;padding-right:40px;" data-251="padding:10px; padding-left:40px;padding-right:40px;top:0;">
 				<div id="info" class="topbar topbar-position topbar-dark hide-topbar" data-0="height:30px" data-251="height:0;">
-		    		
+
 					<div class="col-md-12">
 						<p class="text-cap hidden-xs">TOTAL: {{round(Cart::subtotal())*1000}} XOF</p>
 	    				<p class="text-cap">E-mail: contact@arc.com</p>
@@ -100,7 +100,7 @@
 	    					<a href="#">FR</a>
 	    				</div>
 					</div>
-		    			
+
 		    	</div>
 				<div class="left-header">
 					<ul class="navi-level-1">
@@ -120,33 +120,33 @@
                     </ul>
 				</nav><!-- End Nav -->
 				<div class="right-header">
-					<ul class="navi-level-1 sub-navi seperator-horizonal-line hover-style-4">	
+					<ul class="navi-level-1 sub-navi seperator-horizonal-line hover-style-4">
 						<li class="header-tel"><a class="tel-header" href="#">TOTAL:{{round(Cart::subtotal())*1000}} XOF</a></li>
-						
+
 
 	                    <!-- Testing Search Box -->
 	                    <li><a href="{{route('path_cart')}}"><span aria-hidden="true" class="icon_bag_alt"></span>[{{Cart::count()}} ]
 							</a>
-						</li>	
+						</li>
 						 <li >
 							<a  href="#" data-toggle="modal" data-target="#myModal" id="btn-search" class="reset-btn btn-in-navi"><span aria-hidden="true" class="icon_search"></span></a>
 	                    </li>
 	                    <li>
 	                    	<a href="#/"  class="mm-toggle">
 			            		<span aria-hidden="true" class="icon_menu"></span>
-			            	</a> 
+			            	</a>
 	                    </li>
 					</ul>
 
-				</div><!-- End Right Header -->	
-			</header> 
+				</div><!-- End Right Header -->
+			</header>
 			<!-- End  Header -->
 
 			<!-- Content -->
 				@yield('content')
 			<!-- End Content -->
            @include('layouts/partials/testimony')
-            
+
 			<footer class="footer-v1">
 				<div class="footer-left">
 					<a href="{{ route('path_home') }}">
@@ -193,8 +193,8 @@
 		</div>
 	</div>
 	<!-- End page -->
-   
-	<a id="to-the-top"><i class="fa fa-angle-up"></i></a> 
+
+	<a id="to-the-top"><i class="fa fa-angle-up"></i></a>
 	<!-- Back To Top -->
 
 
@@ -208,9 +208,9 @@
 	<script type="text/javascript" src="{{ asset('revolution/js/jquery.themepunch.tools.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('revolution/js/jquery.themepunch.revolution.min.js') }}"></script>
 
-	<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
-		(Load Extensions only on Local File Systems !  
-		The following part can be removed on Server for On Demand Loading) -->	
+	<!-- SLIDER REVOLUTION 5.0 EXTENSIONS
+		(Load Extensions only on Local File Systems !
+		The following part can be removed on Server for On Demand Loading) -->
 	<script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.actions.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.carousel.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.kenburn.min.js') }}"></script>
@@ -219,29 +219,29 @@
 	<script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.navigation.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.parallax.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
-	<script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.video.min.js') }}"></script>	
+	<script type="text/javascript" src="{{ asset('revolution/js/extensions/revolution.extension.video.min.js') }}"></script>
 	<!-- Intializing Slider-->
 	<script type="text/javascript" src="{{ asset('js/plugins/slider.js') }}"></script>
 
 	 <!-- Mobile Menu
-    ================================================== --> 
-     <script src="{{ asset('js/plugins/jquery.mobile-menu.js') }}"></script> 
+    ================================================== -->
+     <script src="{{ asset('js/plugins/jquery.mobile-menu.js') }}"></script>
       <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
-      
+
 
   	<!-- Initializing the isotope
-    ================================================== --> 
+    ================================================== -->
     <script src="{{ asset('js/plugins/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('js/plugins/custom-isotope.js') }}"></script>
     <!-- Initializing Owl Carousel
     ================================================== -->
     <script src="{{ asset('js/plugins/owl.carousel.js') }}"></script>
     <script src="{{ asset('js/plugins/custom-owl.js') }}"></script>
- 	
+
 
 
  	<!-- PreLoad
-    ================================================== --> 
+    ================================================== -->
    <!--<script type="text/javascript" src="{{ asset('js/plugins/royal_preloader.min.js') }}"></script>
 	<script type="text/javascript">
 		(function($) { "use strict";
@@ -257,11 +257,11 @@
 	</script>-->
 
  	<!-- Global Js
-    ================================================== --> 
+    ================================================== -->
     <script src="{{ asset('js/plugins/custom.js') }}"></script>
 
     @stack('scripts')
-    
+
 </body>
 
 </html>
