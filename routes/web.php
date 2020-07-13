@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+
 // Portefolio route
 Route::get('/','homeController@index')->name('path_home');
 
@@ -69,28 +72,18 @@ Route::prefix('shop')->group(function () {
     Route::get('/{department}', 'shopController@showCategories')->name('path_shop_categories');
 
     Route::get('/{department}/{category}', 'shopController@showProducts')->name('path_shop_product');
-
     Route::get('/{department}/{category}/{product}',"productController@show")->name('path_shop_product_single');
-
     Route::get('/cart', function () {
         return view('pages/shops/shop_cart');
     })->name('path_shop_cart');
-
-    
     Route::post('/cart/add','cartController@store')->name('path_cart_add');
-
-
-    
-    
-
 });
 
 
 
 
 
-
-
+//--------------------voyager routes----------------------------
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

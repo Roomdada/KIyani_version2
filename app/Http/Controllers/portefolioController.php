@@ -19,8 +19,7 @@ class portefolioController extends Controller
                 ->first();*/
     public function index($slug)
     {
-         $testimony = DB::('portfolios')->inRandomOrder()->take(8)->get();
-    
+       $testimony = Portefolio::all();
        $details = Portefolio::where('slug',$slug)->first();
        return view('pages.portefolio/portefolio_detail',compact('details','testimony'));
     }
